@@ -32,7 +32,7 @@
 
 //#include <Wire.h>
 #include "application.h"
-#include "MMA7660.h"
+#include "MMA7660_Spark.h"
 
 /*Function: Write a byte to the register of the MMA7660*/
 void MMA7660::write(uint8_t _register, uint8_t _data) 
