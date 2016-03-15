@@ -1,1 +1,7 @@
-
+{
+  "name": "MMA7660",
+  "author": "Harris Cheung <harris@karez.com>",
+  "license": "GNU",
+  "version": "1.0.0",
+  "description": "MMA7660 ported for Particle"
+}
