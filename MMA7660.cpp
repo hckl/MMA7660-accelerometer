@@ -5,7 +5,9 @@
  * Copyright (c) 2013 seeed technology inc.
  * Author        :   FrankieChu
  * Create Time   :   Jan 2013
- * Change Log    :
+ * Change Log    :   Modified by Harris Cheung on Mar 2016
+ *                   1) Data Table
+ *                   2) getXYZ()
  *
  * The MIT License (MIT)
  *
@@ -60,6 +62,7 @@ uint8_t MMA7660::read(uint8_t _register)
 }
 
 // populate lookup table based on the MMA7660 datasheet at http://www.farnell.com/datasheets/1670762.pdf
+// modified by Harris Cheung 
 void MMA7660::initAccelTable() {
   int8_t i;
   float val, valZ;
@@ -126,10 +129,12 @@ void MMA7660::init(uint8_t interrupts)
   write(MMA7660_INTSU, interrupts);
   setMode(MMA7660_ACTIVE);
 }
-void MMA7660::setMode(uint8_t mode) {
+void MMA7660::setMode(uint8_t mode) 
+{
   write(MMA7660_MODE,mode);
 }
-void MMA7660::setSampleRate(uint8_t rate) {
+void MMA7660::setSampleRate(uint8_t rate) 
+{
   write(MMA7660_SR,rate);
 }
 
@@ -176,7 +181,8 @@ void MMA7660::getAcceleration(float *ax,float *ay,float *az)
     *az = z/21.00;
 }
 
-void MMA7660::getAcceleration(MMA7660_ACC_DATA *data) {
+void MMA7660::getAcceleration(MMA7660_ACC_DATA *data) 
+{
   unsigned char val[3];
   int count;
   bool error;
@@ -207,7 +213,8 @@ void MMA7660::getAcceleration(MMA7660_ACC_DATA *data) {
   (*data).z = accLookup[val[2]];
 }
 
-void MMA7660::getAllData(MMA7660_DATA *data) {
+void MMA7660::getAllData(MMA7660_DATA *data) 
+{
   int count = 0;
   uint8_t val[11] = {0};
 
